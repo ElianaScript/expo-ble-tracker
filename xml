@@ -1,0 +1,4 @@
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>This app uses Bluetooth to connect to nearby devices.</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>BLE requires location access to function.</string>

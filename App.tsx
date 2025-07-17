@@ -23,7 +23,7 @@ export default function App() {
                 <Stack.Screen
                     name="Scan"
                     component={ScanScreen}
-                    options={{ title: 'Scane for Devices' }}
+                    options={{ title: 'Scan for Devices' }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

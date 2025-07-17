@@ -48,7 +48,7 @@ export const requestPermissions = async (): Promise<boolean> => {
 };
 
 //react hook for both 
-export function useBLE() {
+export function useBLE(targetServicesUUIDs: string[] = []) {
     const [devices, setDevices] = useState<Device[]>([]);
     const [scanning, setScanning] = useState(false);
 
@@ -59,22 +59,32 @@ export function useBLE() {
 
     const startScan = async () => {
         if (scanning) return;
-        const ok = await requestPermissions();
-        if (!ok) return;
+        const permissionGranted = await requestPermissions();
+        if (!permissionGranted) {
+            console.error('Permissions not granted for BLE scan.');
+            return;
+        }
 
         setDevices([]);
         setScanning(true);
 
-        bleManager.startDeviceScan(null, null, (error, device) => {
+        bleManager.startDeviceScan(
+            targetServicesUUIDs.length ? targetServicesUUIDs : null, 
+            null,
+            (error, device) => {
             if (error) {
-                console.error('Scan error:', error);
-                setScanning(false);
+                console.error('BLE Scan error:', error);
+                stopScan();
                 return;
             }
-            if (device?.name) addDevice(device);
-        });
 
-        setTimeout(stopScan, 10_100);
+            if (device?.name || device?.localName) {
+            addDevice(device);
+            }
+        }
+    );
+
+        setTimeout(stopScan, 10_000);
     };
 
     const stopScan = () => {
@@ -85,7 +95,7 @@ export function useBLE() {
     useEffect(() => {
         return () => {
             bleManager.stopDeviceScan();
-            // bleManager.destroy(); - uncomment if yout want full teardown
+            // bleManager.destroy(); - uncomment if you want full teardown
         };
     }, []);
 
