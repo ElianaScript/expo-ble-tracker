@@ -18,7 +18,7 @@ const requestAndroid31Permissions = async (): Promise<boolean> => {
         PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
         PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        //PermissionsAndroid.PERMISSIONS.BLUETOOTH_ADVERTISE
+        PermissionsAndroid.PERMISSIONS.BLUETOOTH_ADVERTISE
     ]);
 
     return Object.values(results).every(
