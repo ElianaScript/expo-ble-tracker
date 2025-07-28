@@ -1,6 +1,6 @@
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
-export default function Index() {
+export default function () {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Home screen</Text>

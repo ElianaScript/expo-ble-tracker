@@ -1,5 +1,6 @@
 package com.elianascript.expobletracker
 
+import com.elianascript.expobletracker.BuildConfig
 import android.app.Application
 import android.content.res.Configuration
 

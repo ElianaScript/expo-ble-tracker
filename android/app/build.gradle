@@ -89,7 +89,7 @@ android {
 
     namespace "com.expobletracker"
     defaultConfig {
-        applicationId "com.expobletracker"
+        applicationId "com.elianascript.expobletracker"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
