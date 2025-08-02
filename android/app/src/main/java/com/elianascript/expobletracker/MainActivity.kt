@@ -1,7 +1,5 @@
 package com.elianascript.expobletracker
 
-import com.elianascript.expobletracker.BuildConfig
-import com.elianascript.expobletracker.R
 import android.os.Build
 import android.os.Bundle
 
@@ -34,7 +32,7 @@ class MainActivity : ReactActivity() {
   override fun createReactActivityDelegate(): ReactActivityDelegate {
     return ReactActivityDelegateWrapper(
           this,
-          BuildConfig.IS_NEW_ARCHITECTURE_ENABLED,
+          false,
           object : DefaultReactActivityDelegate(
               this,
               mainComponentName,
