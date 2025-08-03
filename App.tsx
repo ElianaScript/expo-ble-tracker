@@ -1,8 +1,7 @@
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from './app/components/screens/HomeScreen';
-import { ScanScreen } from './app/components/screens/ScanScreen';
+import { ScanScreen } from './app/components/screens/join-party';
 
 export type RootStackParamList = {
     Home: undefined;
