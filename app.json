@@ -1,4 +1,6 @@
 {
+  "name": "expo-ble-tracker",
+  "displayName": "Expo BLE Tracker",
   "expo": {
     "name": "expo-ble-tracker",
     "slug": "expo-ble-tracker",
@@ -13,57 +15,57 @@
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
+  },
+  "android": {
+    "adaptiveIcon": {
+      "backgroundColor": "#ffffff"
     },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "permissions": [
-        "android.permission.BLUETOOTH",
-        "android.permission.BLUETOOTH_ADMIN",
-        "android.permission.BLUETOOTH_CONNECT"
-      ],
-      "package": "com.elianascript.expobletracker"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
-    "plugins": [
-      "expo-router",
-      [
-        "react-native-ble-plx",
-        {
-          "isBackgroundEnabled": true,
-          "modes": [
-            "peripheral",
-            "central"
-          ],
-          "bluetoothAlwaysPermission": "Allow ${PRODUCT_NAME} to connect to bluetooth devices"
-        }
-      ],
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ],
-      "react-native-ble-plx"
+    "edgeToEdgeEnabled": true,
+    "permissions": [
+      "android.permission.BLUETOOTH",
+      "android.permission.BLUETOOTH_ADMIN",
+      "android.permission.BLUETOOTH_CONNECT"
     ],
-    "experiments": {
-      "typedRoutes": true
-    },
-    "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "00591e7d-3f36-4c03-87cf-ef6047947a48"
+    "package": "com.elianascript.expobletracker"
+  },
+  "web": {
+    "bundler": "metro",
+    "output": "static",
+    "favicon": "./assets/images/favicon.png"
+  },
+  "plugins": [
+    "expo-router",
+    [
+      "react-native-ble-plx",
+      {
+        "isBackgroundEnabled": true,
+        "modes": [
+          "peripheral",
+          "central"
+        ],
+        "bluetoothAlwaysPermission": "Allow ${PRODUCT_NAME} to connect to bluetooth devices"
       }
-    },
-    "owner": "elianascript"
-  }
+    ],
+    [
+      "expo-splash-screen",
+      {
+        "image": "./assets/images/splash-icon.png",
+        "imageWidth": 200,
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      }
+    ],
+    "react-native-ble-plx"
+  ],
+  "experiments": {
+    "typedRoutes": true
+  },
+  "extra": {
+    "router": {},
+    "eas": {
+      "projectId": "00591e7d-3f36-4c03-87cf-ef6047947a48"
+    }
+  },
+  "owner": "elianascript"
+ }
 }
