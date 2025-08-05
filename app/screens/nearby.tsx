@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Alert } from 'react-native';
+import {BleManager, Device as BleDevice } from 'react-native-ble-plx';
 import { useLocalSearchParams } from 'expo-router';
 import Button from '../components/ui/Button';
+import DeviceCard from '../components/ui/DeviceCard'
+
+type Device = {
+    id: string;
+    name: string | null;
+    rssi: number | null;
+};
 
 export default function Nearby() {
     const { mode, partyCode } = useLocalSearchParams();
@@ -31,7 +39,7 @@ export default function Nearby() {
             }
 
             if (scannedDevice && scannedDevice.name) {
-                setDeviced(prev => {
+                setDevices(prev => {
                     if (!prev.find(d => d.id === scannedDevice.id)) {
                         return[...prev, scannedDevice];
                     }
@@ -47,12 +55,13 @@ export default function Nearby() {
         }, 10000);
     };
 
-    const renderItem =({ item }: { item: Device }) => (
-        <View style={styles.deviceCard}>
-            <Text style={styles.deviceName}>{item.name}</Text>
-            <Text>ID: {item.id}</Text>
-        </View>
-    );
+const handleDevicePress = (device: Device) => {
+    Alert.alert("Device Selected", `You tappe on ${device.name || 'Unknown'}`);
+};
+
+const renderItem =({ item }: {item: Device }) => (
+    <DeviceCard device={item} onPress={handleDevicePress} />
+)
 
     return(
         <View style={styles.container}>
@@ -62,8 +71,7 @@ export default function Nearby() {
             <Button
                 title={isScanning ? "Scanning..." : "Scan Again"}
                 onPress={startScan}
-                disabled={isScanning}
-                />
+            />
 
                 <FlatList
                     data={devices}
@@ -77,12 +85,5 @@ export default function Nearby() {
 
 const styles = StyleSheet.create({
     container: {flex: 1, padding: 16 },
-    title: { fontSize: 18, fontWeight: "bold", marginBottom: 8 },
-    deviceCard: {
-        padding: 12,
-        marginVertical: 6,
-        backgroundColor: "#eee",
-        borderRadius: 8,
-    },
-    deviceName: {fontSize: 16, fontWeight: "600" },
+    title: { fontSize: 18, fontWeight: "bold", marginBottom: 8 }
 });

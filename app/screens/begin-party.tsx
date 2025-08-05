@@ -41,7 +41,7 @@ export default function BeginParty() {
       </View>
 
       <View style={styles.button}>
-        <Button title="Start Party" onPress={() => router.push("/nearby")} />
+        <Button title="Start Party" onPress={() => router.push("./nearby")} />
       </View>
 
       <View style={styles.button}>

@@ -8,10 +8,10 @@ export default function Landing() {
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Welcome to Laser Tag App!(name in the works)</Text>
       <View style={styles.button}>
-        <Button title="Begin Party" onPress={() => router.push('/begin-party')} />
+        <Button title="Begin Party" onPress={() => router.push('./begin-party')} />
       </View>
       <View style={styles.button}>
-        <Button title="Join Party" onPress={() => router.push('/join-party')} />
+        <Button title="Join Party" onPress={() => router.push('./join-party')} />
       </View>
     </SafeAreaView>
   );
